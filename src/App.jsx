@@ -2,6 +2,7 @@ import './App.css'
 import GradientASCII from './components/GradientASCII'
 import githubIcon from './assets/github.png'
 import linkedinIcon from './assets/linkedin.png'
+import whiteLogo from './assets/armando logo faviconwhite.png'
 import JellyRadio from './components/JellyRadio'
 import Projects, { ProjectDetails } from './pages/projects'
 import About from './pages/about'
@@ -62,7 +63,7 @@ function Portfolio() {
           <img src={linkedinIcon} alt="LinkedIn" />
         </a>
         <Link className="brand-name" to="/">
-          <img src="/assets/armando logo faviconwhite.png" alt="Armando Valdez" />
+          <img src={whiteLogo} alt="Armando Valdez" />
         </Link>
         <a
           className="social-link"
@@ -142,7 +143,7 @@ function Portfolio() {
 
       <footer className="footer-box">
         <Link className="footer-logo" to="/" aria-label="Armando Valdez home">
-          <img src="/assets/armando logo faviconwhite.png" alt="" />
+          <img src={whiteLogo} alt="" />
         </Link>
         <nav className="footer-links" aria-label="Social links">
           <a href="https://www.instagram.com/armando_v777/" target="_blank" rel="noreferrer">

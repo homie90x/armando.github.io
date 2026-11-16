@@ -6,10 +6,12 @@ import roboArmVideo from '../assets/roboarm.mp4'
 import roboCatVideo from '../assets/robocat.mp4'
 import ChromaGrid from '../components/ChromaGrid'
 
+const publicAsset = filename => `${import.meta.env.BASE_URL}assets/${filename}`
+
 const projects = [
   {
     slug: 'prison-realm-eyes',
-    image: '/assets/prison-realm-eyes.svg',
+    image: publicAsset('prison-realm-eyes.svg'),
     video: monsterVideo,
     title: 'Prison Realm Eyes',
     subtitle: 'Animatronic Halloween Build',
@@ -35,7 +37,7 @@ const projects = [
   },
   {
     slug: 'so-101-robot-arm',
-    image: '/assets/so-101-robot-arm.svg',
+    image: publicAsset('so-101-robot-arm.svg'),
     video: roboArmVideo,
     title: 'SO-101 Robot Arm',
     subtitle: 'Robot Arm',
@@ -57,7 +59,7 @@ const projects = [
   },
   {
     slug: 'bongo-cat-keychains',
-    image: '/assets/bongo-cat-keychains.svg',
+    image: publicAsset('bongo-cat-keychains.svg'),
     video: keychainVideo,
     title: 'Bongo Cat Keychains',
     subtitle: 'OLED Keychain',
@@ -80,14 +82,14 @@ const projects = [
   },
   {
     slug: 'robo-cat',
-    image: '/assets/robocat.svg',
+    image: publicAsset('robocat.svg'),
     video: roboCatVideo,
     title: 'RoboCat',
     accent: '#7cc4ff'
   },
   {
     slug: 'altoids-gameboy',
-    image: '/assets/altoids-gameboy.svg',
+    image: publicAsset('altoids-gameboy.svg'),
     video: altoidsVideo,
     title: 'Altoids Gameboy',
     accent: '#ffb27a'
