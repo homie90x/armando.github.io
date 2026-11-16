@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Druk Wide Bold';
+  src: url('./assets/fonts/DrukWideBold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
 .page {
   position: relative;
   min-height: 100vh;
@@ -51,8 +59,52 @@
   text-decoration: none;
 }
 
+.brand-name img {
+  display: block;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
 .social-link:last-child {
   justify-self: end;
+}
+
+.footer-box {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  border-top: 1px solid rgb(255 255 255 / 20%);
+  padding: 1.5rem clamp(1.25rem, 5vw, 4rem);
+  background: rgb(0 0 0 / 45%);
+}
+
+.footer-logo img {
+  display: block;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  text-underline-offset: 0.25em;
+}
+
+.footer-links a:hover,
+.footer-links a:focus-visible {
+  text-decoration: underline;
 }
 
 .main-content {
@@ -84,6 +136,15 @@
   font-weight: 500;
   letter-spacing: -0.06em;
   line-height: 1.05;
+}
+
+.projects-page > h1,
+.project-detail h1,
+.experience-page > h1,
+.about-header h1 {
+  font-family: 'Druk Wide Bold', Impact, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
 .intro {
@@ -119,7 +180,7 @@
 }
 
 .projects-page {
-  width: min(100%, 900px);
+  width: min(100%, 1100px);
   margin: 0 auto;
   text-align: left;
 }
@@ -127,18 +188,62 @@
 .projects-page > h1 {
   width: 100%;
   max-width: none;
-  margin: 0 0 2rem;
+  margin: 0 0 1.5rem;
   text-align: center;
   letter-spacing: 0.1px;
-  
 }
 
-.project-list {
-  display: grid;
-  gap: 1.25rem;
+.projects-grid {
+  margin-top: 1.5rem;
 }
 
-.project-card {
+.project-detail {
+  width: min(100%, 850px);
+  margin: 0 auto;
+  text-align: left;
+}
+
+.project-detail__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  color: #fff;
+  text-decoration: none;
+  text-underline-offset: 0.25em;
+}
+
+.project-detail__back:hover,
+.project-detail__back:focus-visible {
+  text-decoration: underline;
+}
+
+.project-detail__video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid rgb(255 255 255 / 20%);
+  border-radius: 1rem;
+  background: rgb(0 0 0 / 45%);
+  object-fit: contain;
+}
+
+.project-detail__header {
+  margin: 2rem 0 1rem;
+}
+
+.project-detail__header .eyebrow {
+  margin-bottom: 0.75rem;
+  color: rgb(255 255 255 / 70%);
+}
+
+.project-detail__header h1,
+.project-detail > h1 {
+  max-width: none;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+.project-detail__description {
   padding: clamp(1.25rem, 3vw, 2rem);
   border: 1px solid rgb(255 255 255 / 20%);
   border-radius: 1rem;
@@ -146,23 +251,20 @@
   backdrop-filter: blur(8px);
 }
 
-.project-card h2 {
-  margin: 0 0 1rem;
-  color: #fff;
-  font-size: clamp(1.25rem, 3vw, 1.75rem);
-  font-weight: 600;
-  line-height: 1.25;
-}
-
-.project-card p {
-  margin: 0.9rem 0 0;
-  color: #fff;
-  font-size: 0.98rem;
+.project-detail__description p {
+  margin: 0;
+  color: rgb(255 255 255 / 90%);
+  font-size: 1rem;
   line-height: 1.75;
 }
 
-.project-card .project-tech {
-  padding-top: 0.9rem;
+.project-detail__description p + p {
+  margin-top: 1rem;
+}
+
+.project-detail__description .project-detail__tech {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
   border-top: 1px solid rgb(255 255 255 / 18%);
 }
 
@@ -369,6 +471,16 @@
   .social-link img {
     width: 30px;
     height: 30px;
+  }
+
+  .footer-box {
+    justify-content: center;
+  }
+
+  .footer-links {
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
   }
 
 }

@@ -2,26 +2,25 @@ import './App.css'
 import GradientASCII from './components/GradientASCII'
 import githubIcon from './assets/github.png'
 import linkedinIcon from './assets/linkedin.png'
-import roboArmVideo from './assets/roboarm.mp4'
-import roboCatVideo from './assets/robocat.mp4'
-import keychainVideo from './assets/keychain.mp4'
 import JellyRadio from './components/JellyRadio'
-import Projects from './pages/projects'
-import VideoGallery from './components/VideoGallery'
+import Projects, { ProjectDetails } from './pages/projects'
 import About from './pages/about'
 import { HashRouter, Link, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import Experience from './pages/experience'
+import FlexCarousel from './components/FlexCarousel';
+
+
+
+  const items = [
+      { src: '/images/one.jpg', alt: 'A chrome sculpture', title: 'Iridescence' },
+      { src: '/images/two.jpg', alt: 'A figure on a white set', title: 'White Room' },
+      { src: '/images/three.jpg', alt: 'A clay bust in profile', title: 'Clay Study', subtitle: 'Studio 04' }
+];
 
 const pages = [
   { value: 'projects', label: 'Projects', description: 'Here are some interesting projects.' },
   { value: 'experience', label: 'Experience', description: 'Here is my work experience.' },
   { value: 'about', label: 'About Me', description: 'Learn more about me.' },
-]
-
-const videos = [
-  { src: roboArmVideo, title: 'Robo Arm' },
-  { src: roboCatVideo, title: 'RoboCat' },
-  { src: keychainVideo, title: 'Keychain' },
 ]
 
 function PageContent({ title, description }) {
@@ -36,7 +35,10 @@ function PageContent({ title, description }) {
 function Portfolio() {
   const location = useLocation()
   const navigate = useNavigate()
-  const activePage = pages.find(page => `/${page.value}` === location.pathname)?.value ?? null
+  const activePage =
+    location.pathname.startsWith('/projects')
+      ? 'projects'
+      : pages.find(page => `/${page.value}` === location.pathname)?.value ?? null
 
   return (
     <div className="page">
@@ -59,7 +61,9 @@ function Portfolio() {
         >
           <img src={linkedinIcon} alt="LinkedIn" />
         </a>
-        <Link className="brand-name" to="/">Armando Valdez</Link>
+        <Link className="brand-name" to="/">
+          <img src="/assets/armando logo faviconwhite.png" alt="Armando Valdez" />
+        </Link>
         <a
           className="social-link"
           href="https://github.com/homie90x"
@@ -82,8 +86,8 @@ function Portfolio() {
               </>
             }
           />
-          <Route 
-            path="/projects" element={<Projects />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/projects/:projectId" element={<ProjectDetails />} />
           <Route
             path="/experience"
             element={<Experience />} />
@@ -104,8 +108,58 @@ function Portfolio() {
           activeTextColor="#18181b"
           size="lg"
         />
-        {location.pathname === '/' && <VideoGallery items={videos} />}
       </main>
+
+      {/* {location.pathname === '/' && (
+        <div style={{ width: '100%', height: '560px', position: 'relative' }}>
+          <FlexCarousel
+            items={items}
+            preset="liquid"
+            intro="rise"
+            cardHeight={0.5}
+            gap={12}
+            squeeze={0.2}
+            focusOnClick
+            captions
+            fit="natural"
+            radius={0}
+            lensWidth={0.74}
+            lensHeight={1.18}
+            tilt={62}
+            roundness={1}
+            bend={0.34}
+            reach={0.38}
+            curl="twist"
+            dispersion={0.45}
+            liquid={0}
+            followCursor={false}
+            autoplay={false}
+            interval={4}
+            captureWheel
+          />
+        </div>
+      )} */}
+
+      <footer className="footer-box">
+        <Link className="footer-logo" to="/" aria-label="Armando Valdez home">
+          <img src="/assets/armando logo faviconwhite.png" alt="" />
+        </Link>
+        <nav className="footer-links" aria-label="Social links">
+          <a href="https://www.instagram.com/armando_v777/" target="_blank" rel="noreferrer">
+            Instagram
+          </a>
+          <a
+            href="https://www.linkedin.com/in/armando-valdez-97ab571b5/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            LinkedIn
+          </a>
+          <a href="https://github.com/homie90x" target="_blank" rel="noreferrer">
+            GitHub
+          </a>
+        </nav>
+      </footer>
     </div>
   )
 }

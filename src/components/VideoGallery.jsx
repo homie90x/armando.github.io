@@ -35,27 +35,6 @@ export default function VideoGallery({ items = [], className = '' }) {
     }
   }
 
-  const handleScroll = () => {
-    const rail = railRef.current
-    if (!rail) return
-
-    const center = rail.scrollLeft + rail.clientWidth / 2
-    let closestIndex = 0
-    let closestDistance = Infinity
-
-    cardRefs.current.forEach((card, index) => {
-      if (!card) return
-      const cardCenter = card.offsetLeft + card.clientWidth / 2
-      const distance = Math.abs(center - cardCenter)
-      if (distance < closestDistance) {
-        closestIndex = index
-        closestDistance = distance
-      }
-    })
-
-    setActiveIndex(closestIndex)
-  }
-
   const handleKeyDown = event => {
     if (event.key === 'ArrowRight') {
       event.preventDefault()
@@ -89,7 +68,7 @@ export default function VideoGallery({ items = [], className = '' }) {
               <span aria-hidden="true">&rarr;</span>
             </button>
           </div>
-          <div className="video-gallery__rail" ref={railRef} onScroll={handleScroll}>
+          <div className="video-gallery__rail" ref={railRef}>
             {items.map((item, index) => (
               <article
                 className="video-gallery__card"

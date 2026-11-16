@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="600" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#161423"/>
+      <stop offset="1" stop-color="#3C2B58"/>
+    </linearGradient>
+    <radialGradient id="eye" cx="0" cy="0" r="1" gradientTransform="matrix(110 0 0 54 400 295)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff"/>
+      <stop offset="1" stop-color="#C9BEDC"/>
+    </radialGradient>
+  </defs>
+  <path fill="url(#bg)" d="M0 0h800v600H0z"/>
+  <path fill="#F4F1F8" d="M321 199h158l35 258a22 22 0 0 1-22 25H308a22 22 0 0 1-22-25l35-258Z"/>
+  <path fill="#B71C3E" d="M321 199h158l7 53H314l7-53Z"/>
+  <path fill="#fff" fill-opacity=".08" d="M0 0h800v600H0z"/>
+  <g stroke="#C1A9EF" stroke-width="14">
+    <path d="M261 168v38m-19-19h38"/>
+    <path d="M523 316v38m-19-19h38"/>
+    <path d="M281 390v38m-19-19h38"/>
+  </g>
+  <g fill="url(#eye)" stroke="#27202F" stroke-width="12">
+    <ellipse cx="400" cy="174" rx="72" ry="36"/>
+    <ellipse cx="400" cy="292" rx="84" ry="42"/>
+    <ellipse cx="400" cy="406" rx="67" ry="33"/>
+  </g>
+  <g fill="#4A3266">
+    <circle cx="414" cy="174" r="14"/>
+    <circle cx="379" cy="292" r="16"/>
+    <circle cx="411" cy="406" r="13"/>
+  </g>
+</svg>

@@ -41,15 +41,18 @@
   display: flex;
   gap: 1.25rem;
   overflow-x: auto;
-  padding: 0.75rem max(1.25rem, calc((100% - min(76vw, 660px)) / 2)) 1.25rem;
+  padding: 0.75rem max(1.25rem, calc((100% - min(76vw, 360px)) / 2)) 1.25rem;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
-  scrollbar-width: thin;
-  scrollbar-color: rgb(255 255 255 / 35%) transparent;
+  scrollbar-width: none;
+}
+
+.video-gallery__rail::-webkit-scrollbar {
+  display: none;
 }
 
 .video-gallery__card {
-  flex: 0 0 min(76vw, 660px);
+  flex: 0 0 min(76vw, 360px);
   scroll-snap-align: center;
   opacity: 0.58;
   transform: scale(0.94);
@@ -79,7 +82,7 @@
 .video-gallery__preview video {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 9 / 16;
   object-fit: cover;
 }
 
